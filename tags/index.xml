@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Sunwc&#39;s Blog</title>
-    <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on Sunwc&#39;s Blog</description>
+    <title>Tags on Short Tech 2026</title>
+    <link>https://sunwc2023.github.io/short-tech-2026/tags/</link>
+    <description>Recent content in Tags on Short Tech 2026</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sunwc2023.github.io/short-tech-2026/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JWT</title>
-      <link>http://localhost:1313/tags/jwt/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/jwt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/jwt/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/jwt/</guid>
       <description></description>
     </item>
     <item>
       <title>OAuth2</title>
-      <link>http://localhost:1313/tags/oauth2/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/oauth2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/oauth2/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/oauth2/</guid>
       <description></description>
     </item>
     <item>
       <title>SpringSecurity</title>
-      <link>http://localhost:1313/tags/springsecurity/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/springsecurity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/springsecurity/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/springsecurity/</guid>
       <description></description>
     </item>
     <item>
       <title>Game</title>
-      <link>http://localhost:1313/tags/game/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/game/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/game/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/game/</guid>
       <description></description>
     </item>
     <item>
       <title>New</title>
-      <link>http://localhost:1313/tags/new/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/new/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/new/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/new/</guid>
       <description></description>
     </item>
     <item>
       <title>Photos</title>
-      <link>http://localhost:1313/tags/photos/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/photos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/photos/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/photos/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>React</title>
-      <link>http://localhost:1313/tags/react/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/tags/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/react/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/tags/react/</guid>
       <description></description>
     </item>
   </channel>

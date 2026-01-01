@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/categories/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/jwt/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/jwt/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/oauth2/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/oauth2/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/springsecurity/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/springsecurity/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/tech/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/categories/tech/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tech/jwt-20260101/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/blog/tech/jwt-20260101/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/about/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/blog/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/contact/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/contact/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/search/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/game/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/game/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/new/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/new/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/photos/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/photos/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/python/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/react/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/tags/react/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/template/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/categories/template/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/template/</loc>
+    <loc>https://sunwc2023.github.io/short-tech-2026/blog/template/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
   </url>
 </urlset>

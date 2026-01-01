@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech on Sunwc&#39;s Blog</title>
-    <link>http://localhost:1313/categories/tech/</link>
-    <description>Recent content in Tech on Sunwc&#39;s Blog</description>
+    <title>Tech on Short Tech 2026</title>
+    <link>https://sunwc2023.github.io/short-tech-2026/categories/tech/</link>
+    <description>Recent content in Tech on Short Tech 2026</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sunwc2023.github.io/short-tech-2026/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>看得見卻改不了？ - Spring Security (oauth2-resource-server / jwt)</title>
-      <link>http://localhost:1313/blog/tech/jwt-20260101/</link>
+      <link>https://sunwc2023.github.io/short-tech-2026/blog/tech/jwt-20260101/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tech/jwt-20260101/</guid>
+      <guid>https://sunwc2023.github.io/short-tech-2026/blog/tech/jwt-20260101/</guid>
       <description>✨ 7 分鐘破解 JWT 驗簽 ✨ ✨ Part 1 : JWT 生命週期深度解析 - 圖文詳細解說 ✨ ✨ Part 2 : JWT Lifecycle Proof By Code - 圖文詳細解說 ✨ </description>
     </item>
   </channel>
