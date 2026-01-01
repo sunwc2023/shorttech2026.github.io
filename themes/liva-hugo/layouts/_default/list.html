@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+<!-- 以catogory區分文章顯示 -->
+<!-- blog post -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <article class="card">
+              {{ $paginator := .Paginate .Data.Pages }}
+              {{ range $paginator.Pages }}
+              <div class="card-body">
+                <a href="{{ .Permalink }}" class="h5 d-block my-3">{{ .Title | markdownify }}</a>
+                <!-- 顯示在title下方的Author__PublishDate__Category -->
+                <div class="mb-3 post-meta">
+                  <span>By {{ .Site.Params.Author }}</span>
+                  {{ if not .Params.HideDate }}
+                  <span class="border-bottom border-primary px-2 mx-1"></span>
+                  <span>{{ .PublishDate.Format "02 January 2006" }}</span>
+                  {{ end }}
+                  <span class="border-bottom border-primary px-2 mx-1"></span>
+                  {{ range .Params.Categories }}
+                  <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}" class="text-primary">{{ . | title |
+                    humanize }}</a>
+                  {{ end }}
+                </div>
+                <p class="card-text">{{ .Description }}...</p>
+              </div>
+
+            </article>
+            <div class="card-divider pt-5"></div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+
+      <!-- sidebar -->
+      {{ partial "sidebar.html" . }}
+      <!-- /sidebar -->
+
+      <!-- pagination -->
+      <div class="col-12 mt-5">
+        {{ template "_internal/pagination.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /blog post -->
+
+{{ end }}

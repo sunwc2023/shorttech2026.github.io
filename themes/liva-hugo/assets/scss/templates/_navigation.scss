@@ -1,0 +1,140 @@
+.nav-item {
+  margin: 0;
+
+  .nav-link {
+    text-transform: capitalize;
+  }
+}
+
+.navbar-white .navbar-nav .nav-link {
+  color: $text-color-dark;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+/* title-social 水平居中 */
+#title-social {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+
+#title-social .list-inline-item a i {
+  color: $black;
+  /* 设置图标颜色为黑色 */
+
+  &:hover {
+    color: $primary-color !important;
+  }
+}
+
+/* title-menu 靠右 */
+#title-menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 调整 logo 的尺寸 */
+.navbar-brand img {
+  width: 40px;
+  /* 设置为所需的宽度 */
+  height: 40px;
+  /* 设置为所需的高度 */
+  object-fit: contain;
+  /* 确保图像按比例缩放 */
+}
+
+.mobile-view {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.desktop-view {
+  display: block;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+/* 在屏幕宽度小于 992px 时，显示 mobile-view 并隐藏 desktop-view */
+@media (max-width: 991.98px) {
+  .mobile-view {
+    display: block;
+  }
+
+  .desktop-view {
+    display: none;
+  }
+
+  /* 在 mobile-view 下隐藏 #title-social */
+  #navigation #title-social {
+    display: none;
+  }
+
+  /* 使 title-menu 在移动视图中水平居中 */
+  #title-menu {
+    display: flex;
+    flex-direction: column;
+    /* 确保所有子元素在同一列 */
+    align-items: center;
+    /* 居中对齐子元素 */
+    width: 100%;
+  }
+
+}
+
+/* search */
+.search-btn {
+  border: 0;
+  background: transparent;
+  border-right: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+}
+
+.search-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 2;
+  visibility: hidden;
+  transition: .2s ease;
+  opacity: 0;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.search-box {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  background: $white;
+  font-size: 20px;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.search-close {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  page-break-after: 10px;
+  font-size: 20px;
+}

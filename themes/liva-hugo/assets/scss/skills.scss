@@ -1,0 +1,31 @@
+.skill-progress-bar {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}  
+
+.progress-title {
+    color: #666;
+    font-size: 18px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.progress {
+    background: #e9ecef;
+    margin: 5px 0 20px;
+    height: .3rem;
+}
+
+.progress-bar {
+    background-color: #00aaa1;
+    height: .3rem;
+    font-size: .75rem;
+    border-radius: 3px;
+}
+
+.skill {
+    width: var(--skill-width);
+}

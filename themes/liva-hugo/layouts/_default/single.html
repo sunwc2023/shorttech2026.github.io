@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+<section class="section">
+  <div class="container container-custom">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h3>{{ .Title | markdownify }}</h3>
+
+        <!-- post meta -->
+        <div class="mb-3 post-meta">
+          <span>By {{ if .Params.Author }}{{ .Params.Author }}{{ else }}{{ .Site.Params.Author }}{{ end }}</span>
+          {{ if not .Params.HideDate }}
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>{{ .PublishDate.Format "02 January 2006" }}</span>
+          {{ end }}
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+
+          {{ with .Params.Categories }}
+          {{ range . }}
+          <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}" class="text-primary">{{ . | title |
+            humanize }}</a>
+          {{ end }}
+          {{ end }}
+        </div>
+
+        {{/* --- 固定 200x200 縮圖（優先使用 page bundle 的 resource） --- */}}
+        {{ with .Params.image }}
+        {{ $imgName := . }}
+        {{ $imgRes := $.Page.Resources.GetMatch $imgName }}
+        {{ if $imgRes }}
+        {{ $thumb := $imgRes.Fill "200x200 center" }}
+        <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" class="mb-4"
+          style="width:400px;height:400px;object-fit:cover;border-radius:8px;">
+        {{ else }}
+        {{/* fallback to absolute URL (e.g., if you put image under static/) */}}
+        <img src="{{ $imgName | absURL }}" alt="{{ $.Title }}" class="mb-4"
+          style="width:400px;height:400px;object-fit:cover;border-radius:8px;">
+        {{ end }}
+        {{ end }}
+
+        <div class="content mb-5">
+          {{ .Content }}
+        </div>
+
+        <!-- comments -->
+        <script src="https://utteranc.es/client.js" repo="sunwc2023/comment-utterances" issue-term="pathname"
+          theme="github-light" crossorigin="anonymous" async>
+          </script>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

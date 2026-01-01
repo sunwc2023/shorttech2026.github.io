@@ -1,0 +1,17 @@
+{{/* layouts/shortcodes/debug_img.html -- debugging helper */}}
+{{ $src := .Get "src" }}
+{{ if not $src }} {{ $src = .Page.Params.image }} {{ end }}
+<!-- DEBUG: requested src='{{ $src }}' -->
+<!-- DEBUG: listing page resources: -->
+{{ range .Page.Resources }}
+<!-- RES: name='{{ .Name }}' rel='{{ .RelPermalink }}' mediaType='{{ .MediaType.Type }}' -->
+{{ end }}
+
+{{ $res := .Page.Resources.GetMatch $src }}
+{{ if $res }}
+<!-- DEBUG: GetMatch FOUND: name='{{ $res.Name }}' rel='{{ $res.RelPermalink }}' -->
+<img src="{{ $res.RelPermalink }}" alt="debug" style="max-width:200px;">
+{{ else }}
+<!-- DEBUG: GetMatch NOT FOUND for '{{ $src }}' -->
+<img src="{{ $src | absURL }}" alt="fallback" style="max-width:200px;">
+{{ end }}

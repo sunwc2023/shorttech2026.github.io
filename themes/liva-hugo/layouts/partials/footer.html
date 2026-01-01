@@ -1,0 +1,112 @@
+{{ if .Site.Params.newsletter.enable }}
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2>{{ .Site.Params.newsletter.title | markdownify }}</h2>
+        <p class="text-light px-md-5 py-4 border-left border-right border-primary">
+          {{ .Site.Params.newsletter.content | markdownify }}</p>
+        <form action="#" class="row justify-content-center">
+          <div class="input-group col-md-8">
+            <input type="text" class="form-control" placeholder="Your Email Address">
+            <div class="input-group-append">
+              <button class="input-group-text btn btn-primary">Subscribe</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<div class="container">
+  <!-- Icon -->
+  <div class="row justify-content-center pb-4">
+    <div class="col-lg-4 text-center mt-5">
+      <img class="img-fluid rounded-circle" src="http://localhost:1313/images/logo.png" alt="Sunwc's Blog">
+    </div>
+  </div>
+
+
+
+  <!-- Follow Me -->
+  <div class="row justify-content-center pb-4 mobile-view">
+    <div class="col-lg-4 text-center mt-5">
+      <h5 class="mb-4">Follow Me</h5>
+      <div id="title-social">
+        <ul class="list-inline">
+          {{ range .Site.Params.social }}
+          <li class="list-inline-item">
+            <a class="nav-link" href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="border-top py-4 text-center">
+    © 2023-2024 Sunwc's Blog | All Rights Reserved.
+  </div>
+</div>
+
+<script>
+  var indexURL = {{ "index.json" | absURL }}
+</script>
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js}}
+<script src="{{ .URL | absURL }}"></script>
+{{ end }}
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+
+<!-- cookie -->
+{{ if site.Params.cookies.enable }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<script>
+  const expireDays = {{ .Site.Params.cookies.expire_days }};
+  document.cookie = "yourCookieName=yourCookieValue; max-age=" + (expireDays * 24 * 60 * 60) + "; path=/";
+</script>
+
+<!-- <script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires: {{ site.Params.cookies.expire_days }}
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script> -->
+
+<!-- cookie style -->
+<!-- <style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style> -->
+{{ end }}

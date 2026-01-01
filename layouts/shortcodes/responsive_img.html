@@ -1,0 +1,24 @@
+{{/* layouts/shortcodes/responsive_img.html */}}
+{{ $src := .Get "src" }}
+{{ if not $src }}
+{{ $src = .Page.Params.image }}
+{{ end }}
+
+{{ $alt := .Get "alt" | default .Page.Title }}
+{{ $class := .Get "class" | default "" }}
+{{ $sizes := .Get "sizes" | default "(max-width: 800px) 100vw, 800px" }}
+
+{{ $res := .Page.Resources.GetMatch $src }}
+{{ if $res }}
+{{/* Use Fit to produce square versions (center-cropped). Fit requires WidthxHeight. */}}
+{{ $w1 := $res.Fit "400x400" }}
+{{ $w2 := $res.Fit "800x800" }}
+{{ $w3 := $res.Fit "1200x1200" }}
+
+<img src="{{ $w3.RelPermalink }}"
+    srcset="{{ $w1.RelPermalink }} 400w, {{ $w2.RelPermalink }} 800w, {{ $w3.RelPermalink }} 1200w" sizes="{{ $sizes }}"
+    alt="{{ $alt }}" class="{{ $class }}" loading="lazy" style="max-width:100%;height:auto;border-radius:8px;">
+{{ else }}
+{{/* fallback: if not a page resource (e.g. you used a static path), just output absURL */}}
+<img src="{{ $src | absURL }}" alt="{{ $alt }}" class="{{ $class }}" loading="lazy" style="max-width:100%;height:auto;">
+{{ end }}

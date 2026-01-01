@@ -1,0 +1,18 @@
+enable : true
+experience:
+  - date: "FEB 2021 ~ MAR 2023"
+    title: "Java Backend Developer"
+    company: "承暉資訊整合股份有限公司"
+  - date: "SEP 2020 ~ JAN 2021"
+    title: "跨域Java軟體工程師就業養成班"
+    company: "財團法人資訊工業策進會"
+  - date: "FEB 2015 ~ DEC 2016"
+    title: "生產管理"
+    company: "立穩工業股份有限公司"
+  - date: "JUL 2012 ~ JUN 2013"
+    title: "儲備人員"
+    company: "裕毛屋企業股份有限公司"
+  - date: "SEP 2010 ~ JUN 2012"
+    title: "國立台中科技大學 國際貿易系"
+  - date: "SEP 2005 ~ JUN 2010"
+    title: "台南應用科技大學 國際貿易系"

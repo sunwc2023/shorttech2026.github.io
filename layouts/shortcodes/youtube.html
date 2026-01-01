@@ -1,0 +1,51 @@
+{{/* layouts/shortcodes/youtube.html
+Usage examples:
+{{< youtube "JE5x8KUBcLc">}}
+    {{< youtube id="JE5x8KUBcLc" class="my-video" autoplay="true" privacy="true" start="30">}}
+        Supported params: id (or first positional), class, privacy, autoplay, start, rel, modestbranding, loop,
+        maxwidth, aspect
+        */}}
+
+        {{ $id := .Get "id" | default (.Get 0) }}
+        {{ if not $id }}{{ errorf "youtube shortcode: missing id" }}{{ end }}
+
+        {{ $class := .Get "class" | default "responsive-video" }}
+        {{ $privacy := .Get "privacy" | default "false" }}
+        {{ $autoplay := .Get "autoplay" | default "false" }}
+        {{ $start := .Get "start" | default "" }}
+        {{ $rel := .Get "rel" | default "0" }}
+        {{ $modest := .Get "modestbranding" | default "1" }}
+        {{ $loop := .Get "loop" | default "false" }}
+        {{ $maxwidth := .Get "maxwidth" | default "1000px" }}
+        {{ $aspect := .Get "aspect" | default "56.25%" }} {{/* default 16:9 -> 9/16 = 56.25% */}}
+
+        {{/* base URL: normal or privacy-enhanced */}}
+        {{ $base := "https://www.youtube.com/embed/" }}
+        {{ if eq $privacy "true" }}
+        {{ $base = "https://www.youtube-nocookie.com/embed/" }}
+        {{ end }}
+
+        {{/* build query params array */}}
+        {{ $params := slice }}
+        {{ if eq $autoplay "true" }}{{ $params = $params | append "autoplay=1" }}{{ end }}
+        {{ if ne $start "" }}{{ $params = $params | append (printf "start=%s" $start) }}{{ end }}
+        {{ $params = $params | append (printf "rel=%s" $rel) }}
+        {{ $params = $params | append (printf "modestbranding=%s" $modest) }}
+        {{ if eq $loop "true" }}
+        {{ $params = $params | append "loop=1" }}
+        {{/* loop needs playlist param equal to video id */}}
+        {{ $params = $params | append (printf "playlist=%s" $id) }}
+        {{ end }}
+
+        {{ $src := printf "%s%s" $base $id }}
+        {{ if gt (len $params) 0 }}
+        {{ $src = printf "%s?%s" $src (delimit $params "&") }}
+        {{ end }}
+
+        <div class="{{ $class }}"
+            style="max-width:{{ $maxwidth }}; margin:0 auto; position:relative; padding-bottom:{{ $aspect }};">
+            <iframe src="{{ $src }}" title="YouTube video player" frameborder="0"
+                allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture{{ if eq $autoplay "true" }}; autoplay{{ end }}'
+                allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+            </iframe>
+        </div>
