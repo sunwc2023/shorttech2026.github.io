@@ -1,1 +1,0 @@
-# shorttech 2026
