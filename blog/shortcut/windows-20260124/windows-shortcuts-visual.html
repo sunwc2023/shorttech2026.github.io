@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 快捷鍵視覺化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .keyboard-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .shortcut-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .shortcut-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .shortcut-keys {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .key {
+            background: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+
+        .plus {
+            color: #764ba2;
+            font-weight: bold;
+            align-self: center;
+        }
+
+        .shortcut-description {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .visual-keyboard {
+            margin-top: 40px;
+            background: #2d3748;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .keyboard-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .keyboard-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            justify-content: center;
+        }
+
+        .keyboard-key {
+            background: linear-gradient(to bottom, #4a5568, #2d3748);
+            color: white;
+            padding: 15px;
+            min-width: 50px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 0 #1a202c;
+            cursor: pointer;
+            transition: all 0.1s;
+            border: 1px solid #4a5568;
+        }
+
+        .keyboard-key:hover {
+            background: linear-gradient(to bottom, #667eea, #5a67d8);
+            transform: translateY(-2px);
+        }
+
+        .keyboard-key.highlight {
+            background: linear-gradient(to bottom, #f6ad55, #ed8936);
+            animation: pulse 1.5s infinite;
+        }
+
+        .keyboard-key.large {
+            min-width: 100px;
+        }
+
+        .keyboard-key.xlarge {
+            min-width: 150px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 0 #1a202c, 0 0 20px rgba(246, 173, 85, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 4px 0 #1a202c, 0 0 30px rgba(246, 173, 85, 0.8);
+            }
+        }
+
+        .info-box {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-box p {
+            color: #2d3748;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>⌨️ Windows 快捷鍵大全</h1>
+        <p>點擊分類探索,滑鼠懸停查看詳細說明</p>
+    </div>
+
+    <div class="keyboard-container">
+        <div class="category-tabs" id="categoryTabs">
+            <button class="tab active" data-category="system">系統操作</button>
+            <button class="tab" data-category="window">視窗管理</button>
+            <button class="tab" data-category="text">文字編輯</button>
+            <button class="tab" data-category="browser">瀏覽器</button>
+            <button class="tab" data-category="explorer">檔案總管</button>
+        </div>
+
+        <div class="shortcuts-grid" id="shortcutsGrid"></div>
+
+        <div class="visual-keyboard">
+            <h3 class="keyboard-title">🎹 視覺化鍵盤 (懸停查看提示)</h3>
+            <div class="keyboard-row">
+                <div class="keyboard-key" title="Esc - 取消">Esc</div>
+                <div class="keyboard-key" title="F1 - 說明">F1</div>
+                <div class="keyboard-key" title="F2 - 重新命名">F2</div>
+                <div class="keyboard-key" title="F3 - 搜尋">F3</div>
+                <div class="keyboard-key" title="F4 - 網址列">F4</div>
+                <div class="keyboard-key" title="F5 - 重新整理">F5</div>
+                <div class="keyboard-key" title="F11 - 全螢幕">F11</div>
+                <div class="keyboard-key" title="F12 - 開發者工具">F12</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyboard-key">1</div>
+                <div class="keyboard-key">2</div>
+                <div class="keyboard-key">3</div>
+                <div class="keyboard-key">4</div>
+                <div class="keyboard-key">5</div>
+                <div class="keyboard-key">6</div>
+                <div class="keyboard-key">7</div>
+                <div class="keyboard-key">8</div>
+                <div class="keyboard-key">9</div>
+                <div class="keyboard-key">0</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyboard-key">Q</div>
+                <div class="keyboard-key">W</div>
+                <div class="keyboard-key" title="Win + E = 檔案總管">E</div>
+                <div class="keyboard-key" title="Win + R = 執行">R</div>
+                <div class="keyboard-key" title="Ctrl + T = 新分頁">T</div>
+                <div class="keyboard-key">Y</div>
+                <div class="keyboard-key">U</div>
+                <div class="keyboard-key" title="Win + I = 設定">I</div>
+                <div class="keyboard-key">O</div>
+                <div class="keyboard-key" title="Win + P = 投影">P</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyboard-key" title="Ctrl + A = 全選">A</div>
+                <div class="keyboard-key" title="Win + S = 搜尋">S</div>
+                <div class="keyboard-key" title="Win + D = 桌面">D</div>
+                <div class="keyboard-key" title="Ctrl + F = 尋找">F</div>
+                <div class="keyboard-key">G</div>
+                <div class="keyboard-key" title="Win + H = 語音輸入">H</div>
+                <div class="keyboard-key">J</div>
+                <div class="keyboard-key" title="Win + K = 連接裝置">K</div>
+                <div class="keyboard-key" title="Win + L = 鎖定">L</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyboard-key" title="Ctrl + Z = 復原">Z</div>
+                <div class="keyboard-key" title="Ctrl + X = 剪下">X</div>
+                <div class="keyboard-key" title="Ctrl + C = 複製">C</div>
+                <div class="keyboard-key" title="Ctrl + V = 貼上">V</div>
+                <div class="keyboard-key">B</div>
+                <div class="keyboard-key">N</div>
+                <div class="keyboard-key">M</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyboard-key large highlight" title="最重要的鍵!">Ctrl</div>
+                <div class="keyboard-key large highlight" title="Win 鍵 - 系統操作核心">Win</div>
+                <div class="keyboard-key large highlight" title="Alt - 應用程式操作">Alt</div>
+                <div class="keyboard-key xlarge">Space</div>
+                <div class="keyboard-key large highlight" title="Shift - 強化功能">Shift</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>💡 學習小提示:</strong> 從標示為橙色的修飾鍵開始學習 (Ctrl, Win, Alt, Shift),它們是所有快捷鍵的基礎!</p>
+        </div>
+    </div>
+
+    <script>
+        const shortcuts = {
+            system: [
+                { keys: ['Win', 'D'], desc: '顯示/隱藏桌面' },
+                { keys: ['Win', 'E'], desc: '開啟檔案總管' },
+                { keys: ['Win', 'L'], desc: '鎖定電腦' },
+                { keys: ['Win', 'I'], desc: '開啟設定' },
+                { keys: ['Win', 'S'], desc: '開啟搜尋' },
+                { keys: ['Win', 'A'], desc: '通知中心/快速設定' },
+                { keys: ['Win', 'X'], desc: '快速連結選單' },
+                { keys: ['Win', 'R'], desc: '執行對話框' },
+                { keys: ['Win', 'Shift', 'S'], desc: '截圖工具' },
+                { keys: ['Win', 'V'], desc: '剪貼簿歷程' },
+                { keys: ['Ctrl', 'Shift', 'Esc'], desc: '工作管理員' },
+                { keys: ['Alt', 'Tab'], desc: '切換應用程式' },
+            ],
+            window: [
+                { keys: ['Win', '←/→'], desc: '視窗靠左/右' },
+                { keys: ['Win', '↑'], desc: '最大化視窗' },
+                { keys: ['Win', '↓'], desc: '最小化/還原' },
+                { keys: ['Win', 'Tab'], desc: '工作檢視' },
+                { keys: ['Win', 'Ctrl', 'D'], desc: '新增虛擬桌面' },
+                { keys: ['Win', 'Ctrl', '←/→'], desc: '切換虛擬桌面' },
+                { keys: ['Alt', 'F4'], desc: '關閉視窗' },
+                { keys: ['Win', 'Home'], desc: '最小化其他視窗' },
+            ],
+            text: [
+                { keys: ['Ctrl', 'C'], desc: '複製' },
+                { keys: ['Ctrl', 'X'], desc: '剪下' },
+                { keys: ['Ctrl', 'V'], desc: '貼上' },
+                { keys: ['Ctrl', 'Z'], desc: '復原' },
+                { keys: ['Ctrl', 'Y'], desc: '重做' },
+                { keys: ['Ctrl', 'A'], desc: '全選' },
+                { keys: ['Ctrl', 'F'], desc: '尋找' },
+                { keys: ['Ctrl', 'S'], desc: '儲存' },
+            ],
+            browser: [
+                { keys: ['Ctrl', 'T'], desc: '開啟新分頁' },
+                { keys: ['Ctrl', 'W'], desc: '關閉分頁' },
+                { keys: ['Ctrl', 'Shift', 'T'], desc: '重開關閉的分頁' },
+                { keys: ['Ctrl', 'Tab'], desc: '切換到下一個分頁' },
+                { keys: ['Ctrl', 'L'], desc: '選取網址列' },
+                { keys: ['Ctrl', 'D'], desc: '加入書籤' },
+                { keys: ['F5'], desc: '重新整理' },
+                { keys: ['Ctrl', 'F5'], desc: '強制重新整理' },
+            ],
+            explorer: [
+                { keys: ['Ctrl', 'N'], desc: '開啟新視窗' },
+                { keys: ['Alt', '←/→'], desc: '上一頁/下一頁' },
+                { keys: ['Alt', '↑'], desc: '上一層資料夾' },
+                { keys: ['F2'], desc: '重新命名' },
+                { keys: ['F5'], desc: '重新整理' },
+                { keys: ['Ctrl', 'Shift', 'N'], desc: '新增資料夾' },
+                { keys: ['Delete'], desc: '刪除到資源回收筒' },
+                { keys: ['Shift', 'Delete'], desc: '永久刪除' },
+            ]
+        };
+
+        function renderShortcuts(category) {
+            const grid = document.getElementById('shortcutsGrid');
+            grid.innerHTML = '';
+
+            shortcuts[category].forEach(shortcut => {
+                const card = document.createElement('div');
+                card.className = 'shortcut-card';
+
+                const keysHtml = shortcut.keys.map(key =>
+                    `<span class="key">${key}</span>`
+                ).join('<span class="plus">+</span>');
+
+                card.innerHTML = `
+                    <div class="shortcut-keys">${keysHtml}</div>
+                    <div class="shortcut-description">${shortcut.desc}</div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        document.getElementById('categoryTabs').addEventListener('click', (e) => {
+            if (e.target.classList.contains('tab')) {
+                document.querySelectorAll('.tab').forEach(tab =>
+                    tab.classList.remove('active')
+                );
+                e.target.classList.add('active');
+                renderShortcuts(e.target.dataset.category);
+            }
+        });
+
+        renderShortcuts('system');
+    </script>
+</body>
+
+</html>

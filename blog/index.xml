@@ -6,14 +6,21 @@
     <description>Recent content in blog on Short Tech 2026</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sunwc2023.github.io/short-tech-2026/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shortcut - Windows篇</title>
+      <link>https://sunwc2023.github.io/short-tech-2026/blog/shortcut/windows-20260124/</link>
+      <pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://sunwc2023.github.io/short-tech-2026/blog/shortcut/windows-20260124/</guid>
+      <description>💡 互動式學習工具: 點擊開啟完整的快捷鍵視覺化介面 - 包含視覺化鍵盤、分類瀏覽和互動卡片!&#xA;📌 快速記憶法:按「邏輯分類」記憶 1. Win 鍵 = 系統級操作 把 Win 鍵想成「我要控制整個 Windows 系統」:</description>
+    </item>
     <item>
       <title>看得見卻改不了？ - Spring Security (oauth2-resource-server / jwt)</title>
       <link>https://sunwc2023.github.io/short-tech-2026/blog/tech/jwt-20260101/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://sunwc2023.github.io/short-tech-2026/blog/tech/jwt-20260101/</guid>
-      <description>✨ 7 分鐘破解 JWT 驗簽 ✨ ✨ Part 1 : JWT 生命週期深度解析 - 圖文詳細解說 ✨ ✨ Part 2 : JWT Lifecycle Proof By Code - 圖文詳細解說 ✨ </description>
+      <description>🔐 深入淺出 JWT 驗簽機制 - 圖文並茂 × 程式碼實證&#xA;📖 完整內容 本文透過圖文詳解和程式碼實作，完整解析 JWT 在 Spring Security 中的生命週期與驗證機制。</description>
     </item>
     <item>
       <title>Template</title>
